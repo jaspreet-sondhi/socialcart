@@ -1,0 +1,474 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+
+body{
+    background: #0f172a;
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar{
+    border-bottom: 1px solid #2d3748;
+}
+
+.nav-link{
+    color: #d1d5db !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover{
+    color: white !important;
+}
+
+.form-control{
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    color: white;
+}
+
+.form-control:focus{
+    background-color: #1f2937;
+    color: white;
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+
+body{
+    background: #0f172a;
+    font-family: 'Inter', sans-serif;
+}
+
+.custom-card{
+    background: #1e293b;
+    border-radius: 24px;
+    transition: 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.custom-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.card-image-wrapper{
+    overflow: hidden;
+}
+
+.custom-card-img{
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.custom-card:hover .custom-card-img{
+    transform: scale(1.05);
+}
+
+.profile-circle{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #06b6d4
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.custom-description{
+    color: #cbd5e1;
+    line-height: 1.7;
+    min-height: 70px;
+}
+
+#form css
+
+.form-section{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-form-card{
+  margin-top:20px;
+    background: rgba(30,41,59,0.8);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 28px;
+    padding: 45px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+.custom-form-card label{
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: white;
+}
+
+.custom-form-card input,
+.custom-form-card textarea,
+.custom-form-card select{
+    width: 100%;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: white;
+    margin-bottom: 18px;
+    transition: 0.3s ease;
+}
+
+.custom-form-card input:focus,
+.custom-form-card textarea:focus,
+.custom-form-card select:focus{
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+}
+
+.custom-btn{
+    border-radius: 14px;
+    padding: 14px;
+    font-weight: 600;
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #06b6d4
+    );
+    border: none;
+    transition: 0.3s ease;
+}
+
+.custom-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(59,130,246,0.35);
+}
+footer a:hover{
+    color: white !important;
+    transition: 0.3s;
+}
+
+</style>
+    <title>
+        {% block title %}
+        SocialCart
+        {% endblock  %}
+    </title>
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top py-3">
+
+  <div class="container">
+
+    <!-- LOGO -->
+
+    <a class="navbar-brand fw-bold fs-3"
+       href="{% url 'home' %}">
+
+      ☕ SocialCart
+
+    </a>
+
+    <!-- MOBILE TOGGLE -->
+
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <!-- NAV CONTENT -->
+
+    <div class="collapse navbar-collapse"
+         id="navbarSupportedContent">
+
+      <!-- LEFT MENU -->
+
+      <ul class="navbar-nav ms-4 mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active"
+             href="{% url 'home' %}">
+
+            Home
+
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="{% url 'shops_list' %}">
+
+            Explore
+
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+            href="{% url 'categories' %}">
+
+            Categories
+
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="{% url 'favorites_list' %}">
+
+            Favorites
+
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- RIGHT SIDE -->
+
+      <div class="ms-auto d-flex align-items-center gap-2 flex-wrap">
+
+        <!-- SEARCH -->
+
+        <form class="d-flex"
+      method="GET"
+      action="{% url 'shops_list' %}">
+
+    <input class="form-control me-2"
+           type="search"
+           name="search"
+           placeholder="Search shops">
+
+    <button class="btn btn-outline-light"
+            type="submit">
+
+        Search
+
+    </button>
+
+</form>
+
+        <!-- ADD SHOP -->
+
+        <a href="{% url 'shop_create' %}"
+           class="btn btn-primary rounded-pill px-4">
+
+          + Add Shop
+
+        </a>
+
+        <!-- AUTH -->
+
+        {% if user.is_authenticated %}
+
+          <a href="{% url 'profile' user.username %}"
+             class="btn btn-outline-info rounded-pill">
+
+            Profile
+
+          </a>
+
+          <form action="{% url 'logout' %}"
+                method="post">
+
+            {% csrf_token %}
+
+            <button class="btn btn-danger rounded-pill"
+                    type="submit">
+
+              Logout
+
+            </button>
+
+          </form>
+
+        {% else %}
+
+          <a href="{% url 'register' %}"
+             class="btn btn-outline-success rounded-pill">
+
+            Register
+
+          </a>
+
+          <a href="{% url 'login' %}"
+             class="btn btn-success rounded-pill">
+
+            Login
+
+          </a>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
+    <div class="container">
+
+        {% block content %}
+        
+        {% endblock  %}
+
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>    
+<footer class="bg-dark border-top border-secondary mt-5 py-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <h3 class="fw-bold text-info">
+
+                    SocialCart
+
+                </h3>
+
+                <p class="text-secondary mt-3">
+
+                    Discover local shops, trending products,
+                    and connect with your community.
+
+                </p>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <h5 class="fw-bold mb-3">
+
+                    Quick Links
+
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li class="mb-2">
+
+                        <a href="{% url 'home' %}"
+                           class="text-decoration-none text-secondary">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="mb-2">
+
+                        <a href="{% url 'shops_list' %}"
+                           class="text-decoration-none text-secondary">
+
+                            Explore
+
+                        </a>
+
+                    </li>
+
+                    <li class="mb-2">
+
+                        <a href="{% url 'categories' %}"
+                           class="text-decoration-none text-secondary">
+
+                            Categories
+
+                        </a>
+
+                    </li>
+
+                    <li class="mb-2">
+
+                        <a href="{% url 'favorites_list' %}"
+                           class="text-decoration-none text-secondary">
+
+                            Favorites
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- COMMUNITY -->
+
+            <div class="col-md-4">
+
+                <h5 class="fw-bold mb-3">
+
+                    Community
+
+                </h5>
+
+                <p class="text-secondary">
+
+                    Built with Django & Bootstrap to create
+                    a modern social marketplace experience.
+
+                </p>
+
+                <div class="d-flex gap-3 mt-3">
+
+                    <a href="#"
+                       class="btn btn-outline-light rounded-circle">
+
+                        🌐
+
+                    </a>
+
+                    <a href="#"
+                       class="btn btn-outline-light rounded-circle">
+
+                        📸
+
+                    </a>
+
+                    <a href="#"
+                       class="btn btn-outline-light rounded-circle">
+
+                        💼
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr class="border-secondary my-4">
+
+        <div class="text-center text-secondary">
+
+            © 2026 SocialCart. All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+</body>
+</html>

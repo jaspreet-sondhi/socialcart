@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+
+<section class="form-section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-7 col-lg-5">
+
+                <div class="custom-form-card">
+
+                    <div class="text-center mb-4">
+
+                        <h1 class="fw-bold">
+
+                            Create Account
+
+                        </h1>
+
+                        <p class="text-secondary">
+
+                            Join SocialCart and start sharing shops.
+
+                        </p>
+
+                    </div>
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button class="btn custom-btn w-100 mt-3">
+
+                            Register
+
+                        </button>
+
+                    </form>
+
+                    <div class="text-center mt-4">
+
+                        <p class="text-secondary">
+
+                            Already have an account?
+
+                            <a href="{% url 'login' %}"
+                               class="text-info text-decoration-none">
+
+                                Login here
+
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

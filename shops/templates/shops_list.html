@@ -1,0 +1,234 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Explore Shops
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-5">
+
+            <div>
+
+                <h1 class="fw-bold display-5">
+
+                    Explore Shops
+
+                </h1>
+
+                <p class="text-secondary">
+
+                    Discover trending local businesses and products.
+
+                </p>
+
+            </div>
+
+            <a href="{% url 'shop_create' %}"
+               class="btn btn-primary rounded-pill px-4 py-2">
+
+                + Create Shop
+
+            </a>
+
+        </div>
+
+        <!-- SEARCH RESULT -->
+
+        {% if search_query %}
+
+        <div class="mb-4">
+
+            <h4>
+
+                Search results for:
+
+                <span class="text-info">
+
+                    "{{ search_query }}"
+
+                </span>
+
+            </h4>
+
+        </div>
+
+        {% endif %}
+
+        <!-- EMPTY STATE -->
+
+        {% if not shop %}
+
+        <div class="text-center py-5">
+
+            <h3 class="fw-bold">
+
+                No shops found 😔
+
+            </h3>
+
+            <p class="text-secondary mt-3">
+
+                Try another search or create your own shop.
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+        <!-- SHOP GRID -->
+
+        <div class="row g-4">
+
+            {% for shop in shop %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card custom-card border-0 h-100 overflow-hidden">
+
+                    <!-- IMAGE -->
+
+                    {% if shop.photo %}
+
+                    <div class="card-image-wrapper">
+
+                        <img src="{{ shop.photo.url }}"
+                             class="custom-card-img"
+                             alt="">
+
+                    </div>
+
+                    {% endif %}
+
+                    <!-- BODY -->
+
+                    <div class="card-body p-4">
+
+                        <!-- USER -->
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                            <div class="d-flex align-items-center">
+
+                                <div class="profile-circle">
+
+                                    {{ shop.user.username|first|upper }}
+
+                                </div>
+
+                                <div class="ms-3">
+
+                                    <h6 class="mb-0 fw-bold">
+
+                                        {{ shop.user.username }}
+
+                                    </h6>
+
+                                    <small class="text-secondary">
+
+                                        Community Seller
+
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <span class="badge bg-primary rounded-pill px-3 py-2">
+
+                                {{ shop.category }}
+
+                            </span>
+
+                        </div>
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="custom-description">
+
+                            {{ shop.text }}
+
+                        </p>
+
+                        <!-- ACTION BUTTONS -->
+
+                        <div class="d-flex gap-2 flex-wrap mt-4">
+
+                            <!-- LIKE -->
+
+                            <form action="{% url 'like_shop' shop.id %}"
+                                  method="POST">
+
+                                {% csrf_token %}
+
+                                <button class="btn btn-outline-danger rounded-pill">
+
+                                    ❤️ {{ shop.likes.count }}
+
+                                </button>
+
+                            </form>
+
+                            <!-- FAVORITE -->
+
+                            <form action="{% url 'favorite_shop' shop.id %}"
+                                  method="POST">
+
+                                {% csrf_token %}
+
+                                <button class="btn btn-outline-warning rounded-pill">
+
+                                    ⭐ {{ shop.favorites.count }}
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                        <!-- OWNER BUTTONS -->
+
+                        {% if shop.user == user %}
+
+                        <div class="d-flex gap-2 mt-4">
+
+                            <a href="{% url 'shop_edit' shop.id %}"
+                               class="btn btn-primary rounded-pill w-100">
+
+                                Edit
+
+                            </a>
+
+                            <a href="{% url 'shop_delete' shop.id %}"
+                               class="btn btn-outline-danger rounded-pill w-100">
+
+                                Delete
+
+                            </a>
+
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

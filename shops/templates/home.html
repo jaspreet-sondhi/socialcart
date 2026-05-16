@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block title %}
+SocialCart
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+
+<section class="py-5 text-center">
+
+    <div class="container py-5">
+
+        <h1 class="display-2 fw-bold mb-4">
+
+            Discover Local Shops & Trending Products
+
+        </h1>
+
+        <p class="lead text-secondary mb-5">
+
+            Connect with local businesses, discover hidden gems,
+            and share your favorite products with the community.
+
+        </p>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+            <a href="{% url 'shops_list' %}"
+               class="btn btn-primary btn-lg rounded-pill px-5">
+               
+                Explore Shops
+
+            </a>
+
+            <a href="{% url 'shop_create' %}"
+               class="btn btn-outline-light btn-lg rounded-pill px-5">
+
+                + Add Your Shop
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="pb-5">
+
+    <div class="container">
+
+        <h2 class="text-center fw-bold mb-4">
+
+            Popular Categories
+
+        </h2>
+
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+
+            <a href="{% url 'shops_list' %}?category=Coffee"
+   class="btn btn-outline-primary rounded-pill px-4 py-2">
+
+    ☕ Coffee
+
+    </a>
+
+           <a href="{% url 'shops_list' %}?category=Food"
+   class="btn btn-outline-success rounded-pill px-4 py-2">
+
+    🍔 Food
+
+</a>
+
+<a href="{% url 'shops_list' %}?category=Fashion"
+   class="btn btn-outline-warning rounded-pill px-4 py-2">
+
+    👕 Fashion
+
+</a>
+
+<a href="{% url 'shops_list' %}?category=Tech"
+   class="btn btn-outline-info rounded-pill px-4 py-2">
+
+    💻 Tech
+
+</a>
+
+<a href="{% url 'shops_list' %}?category=Art"
+   class="btn btn-outline-danger rounded-pill px-4 py-2">
+
+    🎨 Art
+
+</a>
+
+
+
+    </div>
+
+</section>
+
+<!-- FEATURE SECTION -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card bg-dark border-secondary p-4 h-100 rounded-4">
+
+                    <h3>📍 Discover Local Shops</h3>
+
+                    <p class="text-secondary">
+
+                        Explore businesses and trending products around you.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card bg-dark border-secondary p-4 h-100 rounded-4">
+
+                    <h3>❤️ Community Driven</h3>
+
+                    <p class="text-secondary">
+
+                        Like, share, and support your favorite local sellers.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card bg-dark border-secondary p-4 h-100 rounded-4">
+
+                    <h3>🚀 Grow Your Brand</h3>
+
+                    <p class="text-secondary">
+
+                        Create your own shop profile and reach new customers.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

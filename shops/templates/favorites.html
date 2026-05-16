@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Favorites
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <h1 class="fw-bold mb-5 text-center">
+
+            ⭐ Your Favorite Shops
+
+        </h1>
+
+        {% if favorite_shops %}
+
+        <div class="row g-4">
+
+            {% for shop in favorite_shops %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card bg-dark border-secondary rounded-4 overflow-hidden h-100">
+
+                    {% if shop.photo %}
+
+                    <img src="{{ shop.photo.url }}"
+                         class="card-img-top"
+                         style="height:250px;object-fit:cover;">
+
+                    {% endif %}
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+
+                            {{ shop.user.username }}
+
+                        </h5>
+
+                        <p class="card-text">
+
+                            {{ shop.text }}
+
+                        </p>
+
+                        <span class="badge bg-primary">
+
+                            {{ shop.category }}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="text-center">
+
+            <h3 class="mb-3">
+
+                No favorites yet ⭐
+
+            </h3>
+
+            <p class="text-secondary">
+
+                Start saving shops you love.
+
+            </p>
+
+            <a href="{% url 'shops_list' %}"
+               class="btn btn-primary rounded-pill mt-3">
+
+                Explore Shops
+
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

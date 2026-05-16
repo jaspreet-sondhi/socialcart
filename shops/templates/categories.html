@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Categories
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <h1 class="text-center fw-bold mb-5">
+
+            Explore Categories
+
+        </h1>
+
+        <div class="row g-4">
+
+            <!-- COFFEE -->
+
+            <div class="col-md-4">
+
+                <a href="{% url 'shops_list' %}?category=Coffee"
+                   class="text-decoration-none">
+
+                    <div class="card bg-dark border-secondary p-5 text-center rounded-4 h-100">
+
+                        <h2>☕</h2>
+
+                        <h3 class="mt-3 text-white">
+
+                            Coffee
+
+                        </h3>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- FOOD -->
+
+            <div class="col-md-4">
+
+                <a href="{% url 'shops_list' %}?category=Food"
+                   class="text-decoration-none">
+
+                    <div class="card bg-dark border-secondary p-5 text-center rounded-4 h-100">
+
+                        <h2>🍔</h2>
+
+                        <h3 class="mt-3 text-white">
+
+                            Food
+
+                        </h3>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- FASHION -->
+
+            <div class="col-md-4">
+
+                <a href="{% url 'shops_list' %}?category=Fashion"
+                   class="text-decoration-none">
+
+                    <div class="card bg-dark border-secondary p-5 text-center rounded-4 h-100">
+
+                        <h2>👕</h2>
+
+                        <h3 class="mt-3 text-white">
+
+                            Fashion
+
+                        </h3>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- TECH -->
+
+            <div class="col-md-4">
+
+                <a href="{% url 'shops_list' %}?category=Tech"
+                   class="text-decoration-none">
+
+                    <div class="card bg-dark border-secondary p-5 text-center rounded-4 h-100">
+
+                        <h2>💻</h2>
+
+                        <h3 class="mt-3 text-white">
+
+                            Tech
+
+                        </h3>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- ART -->
+
+            <div class="col-md-4">
+
+                <a href="{% url 'shops_list' %}?category=Art"
+                   class="text-decoration-none">
+
+                    <div class="card bg-dark border-secondary p-5 text-center rounded-4 h-100">
+
+                        <h2>🎨</h2>
+
+                        <h3 class="mt-3 text-white">
+
+                            Art
+
+                        </h3>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

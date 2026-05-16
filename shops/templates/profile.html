@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card p-4 mb-4">
+
+        {% if profile.profile_image %}
+            <img src="{{ profile.profile_image.url }}"
+                 width="120"
+                 height="120"
+                 class="rounded-circle">
+        {% endif %}
+
+        <h2>{{ profile.user.username }}</h2>
+
+        {% if request.user == profile.user %}
+    <a href="{% url 'edit_profile' %}"
+       class="btn btn-primary mb-3">
+       Edit Profile
+    </a>
+{% endif %}
+
+        <p>{{ profile.bio }}</p>
+
+        <p>{{ profile.location }}</p>
+
+        <a href="{{ profile.website }}">
+            {{ profile.website }}
+        </a>
+
+    </div>
+
+    <h3>User Posts</h3>
+
+    <div class="row">
+
+        {% for shop in shops %}
+
+        <div class="card col-md-4 p-3 m-2">
+
+            {% if shop.photo %}
+                <img src="{{ shop.photo.url }}" class="img-fluid">
+            {% endif %}
+
+            <p>{{ shop.text }}</p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
