@@ -26,7 +26,15 @@ SECRET_KEY = 'django-insecure-%(w5m*w&p4*qdx-ofaxiv%ksb3ap9+q_n3de6$k1bs#lw9b*30
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'socialcart.onrender.com',
+    '127.0.0.1',
+    'localhost'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://socialcart.onrender.com'
+]
 
 
 # Application definition
